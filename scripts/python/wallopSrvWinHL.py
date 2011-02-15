@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 __module_name__ = "wallopSrvWinHL"
-__module_version__ = "0.07"
+__module_version__ = "0.08"
 __module_description__ = "Moves wallops to server window and highlights"
 # ; Based on http://enigma-penguin.net/wallop.py0.1;"
 
 import xchat
 
 def dispwallop_dbg(disp, string):
-	DBG_DISPWALLOP = 1
+	DBG_DISPWALLOP = 0
 	if DBG_DISPWALLOP == 1:
 		disp.prnt(string)
 
 def dispwallop_dbgEmit(disp, event_name, *args):
-	DBG_DISPWALLOP = 1
+	DBG_DISPWALLOP = 0
 	if DBG_DISPWALLOP == 1:
 		disp.emit_print(event_name, *args)
 
