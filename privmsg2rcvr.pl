@@ -22,7 +22,7 @@
 ##   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 ##   OTHER DEALINGS IN THE SOFTWARE.
 
-Xchat::register('privmsg2rcvr','0.06','Move Privmsg messages to the reciever\'s window');
+Xchat::register('privmsg2rcvr','0.07','Move Privmsg messages to the reciever\'s window');
 # Don't eat the message UNLESS we need to move it and minimize how much logic
 # is processed before aborting.
 
@@ -32,8 +32,9 @@ Xchat::hook_server('PRIVMSG',\&PrivMsgToReceiverWin);
 use constant PrivMsgToReceiverWinPOP => 1;
 
 sub PrefixToNick {
-	if (($_[0] =~ s/:([^!@]+)([!@].*)?/$1/) >= 1) {
-		return $_[0];
+	my $n = $_[0];
+	if (($n =~ s/:([^!@]+)([!@].*)?/$1/) >= 1) {
+		return $n;
 	} else {	# non-prefix arg
 		return "";
 	}
