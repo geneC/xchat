@@ -22,7 +22,7 @@
 ##   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 ##   OTHER DEALINGS IN THE SOFTWARE.
 
-Xchat::register('privmsg2rcvr','0.07','Move Privmsg messages to the reciever\'s window');
+Xchat::register('privmsg2rcvr','0.08','Move Privmsg messages to the reciever\'s window');
 # Don't eat the message UNLESS we need to move it and minimize how much logic
 # is processed before aborting.
 
@@ -60,7 +60,7 @@ sub PrivMsgToReceiverWin {
 		Xchat::command("QUERY ".$p1);
 	    }
 	    if (Xchat::set_context($p1, $srv)) {
-		Xchat::emit_print("Channel Message", $nick, substr($msge[3], 1));
+		Xchat::emit_print("Channel Message", $nick, "" . substr(($msge[3]), 1));
 		Xchat::set_context($cxt);
 		return Xchat::EAT_ALL;
 	    }
